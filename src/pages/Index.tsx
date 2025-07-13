@@ -45,10 +45,14 @@ const Index = () => {
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium">Главная</a>
-              <a href="#catalog" className="text-gray-700 hover:text-blue-600 font-medium">Каталог</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium">О компании</a>
-              <a href="#contacts" className="text-gray-700 hover:text-blue-600 font-medium">Контакты</a>
+              <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>Главная</a>
+              <a href="#catalog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' }); }}>Каталог</a>
+              <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>О компании</a>
+              <a href="#contacts" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' }); }}>Контакты</a>
             </nav>
           </div>
         </div>
@@ -154,8 +158,8 @@ const Index = () => {
                       ))}
                     </ul>
                     <Button className="w-full mt-4" variant="outline">
-                      <Icon name="ShoppingCart" size={16} className="mr-2" />
-                      Запросить цену
+                      <Icon name="Eye" size={16} className="mr-2" />
+                      Посмотреть ассортимент
                     </Button>
                   </div>
                 </CardContent>
