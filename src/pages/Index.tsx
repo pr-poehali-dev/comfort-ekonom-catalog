@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const products = [
@@ -157,9 +158,11 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-4" variant="outline">
-                      <Icon name="Eye" size={16} className="mr-2" />
-                      Посмотреть ассортимент
+                    <Button className="w-full mt-4" variant="outline" asChild>
+                      <Link to="/catalog">
+                        <Icon name="Eye" size={16} className="mr-2" />
+                        Посмотреть ассортимент
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -232,7 +235,7 @@ const Index = () => {
                   <Icon name="Phone" size={24} className="text-blue-600" />
                 </div>
                 <h3 className="font-semibold mb-2">Телефон</h3>
-                <p className="text-gray-600">+7 (495) 123-45-67</p>
+                <p className="text-gray-600">+7 (964) 001-61-65</p>
                 <p className="text-gray-600">+7 (800) 555-00-99</p>
               </CardContent>
             </Card>
@@ -244,7 +247,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-gray-600">info@comfort-econom.ru</p>
-                <p className="text-gray-600">sales@comfort-econom.ru</p>
+                <p className="text-gray-600">comffortt@bk.ru</p>
               </CardContent>
             </Card>
             
@@ -254,8 +257,7 @@ const Index = () => {
                   <Icon name="MapPin" size={24} className="text-blue-600" />
                 </div>
                 <h3 className="font-semibold mb-2">Адрес</h3>
-                <p className="text-gray-600">г. Москва, ул. Промышленная, 15</p>
-                <p className="text-gray-600">БЦ "Альфа", офис 301</p>
+                <p className="text-gray-600">г. Махачкала, ул. Аджамтова, 5</p>
               </CardContent>
             </Card>
           </div>
@@ -288,16 +290,16 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Продукция</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Влажные салфетки</a></li>
-                <li><a href="#" className="hover:text-white">Бумажные полотенца</a></li>
-                <li><a href="#" className="hover:text-white">Туалетная бумага</a></li>
+                <li><Link to="/catalog">Влажные салфетки</Link></li>
+                <li><Link to="/catalog">Бумажные полотенца</Link></li>
+                <li><Link to="/catalog">Туалетная бумага</Link></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Компания</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white">О нас</a></li>
+                <li><a href="#about">О нас</a></li>
                 <li><a href="#" className="hover:text-white">Сертификаты</a></li>
                 <li><a href="#" className="hover:text-white">Новости</a></li>
               </ul>
@@ -306,9 +308,9 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Контакты</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>+7 (495) 123-45-67</li>
-                <li>info@comfort-econom.ru</li>
-                <li>г. Москва, ул. Промышленная, 15</li>
+                <li>+7 (964) 001-61-65</li>
+                <li>comffortt@bk.ru</li>
+                <li>г. Махачкала, ул. Аджамтова, 5</li>
               </ul>
             </div>
           </div>
