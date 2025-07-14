@@ -11,21 +11,21 @@ const Index = () => {
       id: 1,
       title: "Влажные антибактериальные салфетки",
       description: "Эффективная защита от бактерий и вирусов. Подходят для офисов, кафе, медицинских учреждений.",
-      category: "Влажные салфетки",
+      category: "влажные-салфетки",
       features: ["Антибактериальный эффект", "Безопасный состав", "Удобная упаковка"]
     },
     {
       id: 2,
       title: "Рулоны вискозных салфеток",
       description: "Прочные и впитывающие салфетки для профессиональной уборки. Идеальны для HoReCa сектора.",
-      category: "Бумажные полотенца",
+      category: "бумажные-полотенца",
       features: ["Высокая впитываемость", "Прочность", "Экономичность"]
     },
     {
       id: 3,
       title: "Туалетная бумага премиум",
       description: "Мягкая двухслойная туалетная бумага для комфортного использования в офисах и общественных местах.",
-      category: "Туалетная бумага",
+      category: "туалетная-бумага",
       features: ["Двухслойная", "Мягкость", "Белоснежность"]
     }
   ];
@@ -184,13 +184,7 @@ const Index = () => {
                 бумажных полотенец и туалетной бумаги.
               </p>
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Icon name="Calendar" size={20} className="text-blue-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold">Опыт работы</h3>
-                    <p className="text-gray-600">Более 10 лет на рынке гигиенических изделий</p>
-                  </div>
-                </div>
+
                 <div className="flex items-start space-x-3">
                   <Icon name="Award" size={20} className="text-blue-600 mt-1" />
                   <div>
@@ -202,7 +196,7 @@ const Index = () => {
                   <Icon name="MapPin" size={20} className="text-blue-600 mt-1" />
                   <div>
                     <h3 className="font-semibold">География</h3>
-                    <p className="text-gray-600">Доставляем по всей России и странам СНГ</p>
+                    <p className="text-gray-600">Доставляем по всей России</p>
                   </div>
                 </div>
               </div>
