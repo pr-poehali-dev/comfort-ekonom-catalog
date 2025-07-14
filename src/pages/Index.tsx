@@ -159,7 +159,7 @@ const Index = () => {
                       ))}
                     </ul>
                     <Button className="w-full mt-4" variant="outline" asChild>
-                      <Link to="/catalog">
+                      <Link to={`/catalog#${product.category.toLowerCase().replace(/\s+/g, '-')}`}>
                         <Icon name="Eye" size={16} className="mr-2" />
                         Посмотреть ассортимент
                       </Link>
@@ -263,9 +263,11 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Icon name="MessageCircle" size={20} className="mr-2" />
-              Отправить заявку
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
+              <a href="https://wa.me/79640016165" target="_blank" rel="noopener noreferrer">
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                Отправить заявку
+              </a>
             </Button>
           </div>
         </div>
@@ -290,19 +292,17 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Продукция</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link to="/catalog">Влажные салфетки</Link></li>
-                <li><Link to="/catalog">Бумажные полотенца</Link></li>
-                <li><Link to="/catalog">Туалетная бумага</Link></li>
+                <li><Link to="/catalog#влажные-салфетки">Влажные салфетки</Link></li>
+                <li><Link to="/catalog#бумажные-полотенца">Бумажные полотенца</Link></li>
+                <li><Link to="/catalog#туалетная-бумага">Туалетная бумага</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4">Компания</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#" className="hover:text-white">Сертификаты</a></li>
-                <li><a href="#" className="hover:text-white">Новости</a></li>
-              </ul>
+              <h3 className="font-semibold mb-4">География</h3>
+              <p className="text-gray-400">
+                Доставляем по всей России и странам СНГ
+              </p>
             </div>
             
             <div>
