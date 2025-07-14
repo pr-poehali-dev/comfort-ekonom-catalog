@@ -48,8 +48,8 @@ const Index = () => {
             <nav className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
                  onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>Главная</a>
-              <a href="#влажные-салфетки" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
-                 onClick={(e) => { e.preventDefault(); document.getElementById('влажные-салфетки')?.scrollIntoView({ behavior: 'smooth' }); }}>Каталог</a>
+              <a href="#catalog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' }); }}>Каталог</a>
               <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
                  onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>О компании</a>
               <a href="#contacts" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
@@ -120,6 +120,54 @@ const Index = () => {
               <h3 className="text-xl font-semibold mb-2">Сервис</h3>
               <p className="text-gray-600">Индивидуальный подход и профессиональная поддержка клиентов</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catalog */}
+      <section id="catalog" className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Каталог продукции</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Широкий ассортимент гигиенических изделий для вашего бизнеса
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <Card key={product.id} className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="secondary">{product.category === 'влажные-салфетки' ? 'Влажные салфетки' : product.category === 'бумажные-полотенца' ? 'Бумажные полотенца' : 'Туалетная бумага'}</Badge>
+                    <Icon name="Package2" size={20} className="text-gray-400" />
+                  </div>
+                  <CardTitle className="text-xl">{product.title}</CardTitle>
+                  <CardDescription className="text-base">
+                    {product.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900">Особенности:</h4>
+                    <ul className="space-y-2">
+                      {product.features.map((feature, index) => (
+                        <li key={index} className="flex items-center text-sm text-gray-600">
+                          <Icon name="Check" size={16} className="text-green-500 mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-4" variant="outline" onClick={() => {
+                      document.getElementById(product.category)?.scrollIntoView({ behavior: 'smooth' });
+                    }}>
+                      <Icon name="Eye" size={16} className="mr-2" />
+                      Посмотреть ассортимент
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
