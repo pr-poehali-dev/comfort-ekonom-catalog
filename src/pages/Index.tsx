@@ -48,8 +48,8 @@ const Index = () => {
             <nav className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
                  onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>Главная</a>
-              <a href="#catalog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
-                 onClick={(e) => { e.preventDefault(); document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' }); }}>Каталог</a>
+              <a href="#влажные-салфетки" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
+                 onClick={(e) => { e.preventDefault(); document.getElementById('влажные-салфетки')?.scrollIntoView({ behavior: 'smooth' }); }}>Каталог</a>
               <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
                  onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>О компании</a>
               <a href="#contacts" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200" 
@@ -124,46 +124,148 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Catalog */}
-      <section id="catalog" className="bg-white py-16">
+      {/* Влажные салфетки */}
+      <section id="влажные-салфетки" className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Каталог продукции</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Влажные салфетки</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Широкий ассортимент гигиенических изделий для вашего бизнеса
+              Полный ассортимент влажных салфеток для вашего бизнеса
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <Card key={product.id} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary">{product.category}</Badge>
-                    <Icon name="Package2" size={20} className="text-gray-400" />
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { name: "Антибактериальные салфетки Универсал", specs: ["Размер: 15x20 см", "Упаковка: 100 шт", "Спирт: 70%"] },
+              { name: "Антибактериальные салфетки Премиум", specs: ["Размер: 18x20 см", "Упаковка: 80 шт", "Алоэ + Витамин E"] },
+              { name: "Салфетки для очистки поверхностей", specs: ["Размер: 20x25 см", "Упаковка: 50 шт", "Материал: спанлейс"] },
+              { name: "Салфетки с хлоргексидином", specs: ["Размер: 15x20 см", "Упаковка: 100 шт", "Медицинское применение"] },
+              { name: "Салфетки для рук с алоэ", specs: ["Размер: 15x18 см", "Упаковка: 120 шт", "Увлажняющий эффект"] },
+              { name: "Салфетки антивирусные", specs: ["Размер: 18x20 см", "Упаковка: 80 шт", "Эффективность: 99,9%"] },
+              { name: "Салфетки для офиса Мини", specs: ["Размер: 12x15 см", "Упаковка: 200 шт", "Компактные"] },
+              { name: "Салфетки с витамином C", specs: ["Размер: 15x20 см", "Упаковка: 100 шт", "Освежающий аромат"] },
+              { name: "Салфетки для клавиатуры", specs: ["Размер: 10x15 см", "Упаковка: 100 шт", "Антистатик"] },
+              { name: "Салфетки с маслом чайного дерева", specs: ["Размер: 15x20 см", "Упаковка: 80 шт", "Натуральные компоненты"] },
+              { name: "Салфетки гипоаллергенные", specs: ["Размер: 15x18 см", "Упаковка: 120 шт", "Без спирта"] },
+              { name: "Салфетки с лимонным ароматом", specs: ["Размер: 15x20 см", "Упаковка: 100 шт", "Освежающий эффект"] }
+            ].map((product, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img 
+                    src="/img/3a89aa20-0c86-4e7a-84e7-d82bc4da00a1.jpg" 
+                    alt={product.name}
+                    className="w-full h-48 object-cover rounded-t-lg"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-3">{product.name}</h3>
+                  <div className="space-y-2">
+                    {product.specs.map((spec, specIndex) => (
+                      <div key={specIndex} className="flex items-center text-sm text-gray-600">
+                        <Icon name="Check" size={14} className="text-green-500 mr-2 flex-shrink-0" />
+                        {spec}
+                      </div>
+                    ))}
                   </div>
-                  <CardTitle className="text-xl">{product.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {product.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Особенности:</h4>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-center text-sm text-gray-600">
-                          <Icon name="Check" size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button className="w-full mt-4" variant="outline" asChild>
-                      <Link to={`/catalog#${product.category.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <Icon name="Eye" size={16} className="mr-2" />
-                        Посмотреть ассортимент
-                      </Link>
-                    </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Бумажные полотенца */}
+      <section id="бумажные-полотенца" className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Бумажные полотенца</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Полный ассортимент бумажных полотенец для вашего бизнеса
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { name: "Полотенца рулонные Однослойные", specs: ["Длина: 200 м", "Ширина: 20 см", "Перфорация: 20 см"] },
+              { name: "Полотенца рулонные Двухслойные", specs: ["Длина: 150 м", "Ширина: 22 см", "Повышенная прочность"] },
+              { name: "Полотенца листовые V-сложение", specs: ["Размер: 23x21 см", "Упаковка: 250 шт", "Компактное сложение"] },
+              { name: "Полотенца листовые Z-сложение", specs: ["Размер: 25x23 см", "Упаковка: 200 шт", "Легкое извлечение"] },
+              { name: "Полотенца микрофольдеры", specs: ["Размер: 20x22 см", "Упаковка: 300 шт", "Микрофольдеры"] },
+              { name: "Полотенца с тиснением", specs: ["Размер: 23x25 см", "Упаковка: 200 шт", "Декоративное тиснение"] },
+              { name: "Полотенца для диспенсеров Мини", specs: ["Размер: 19x21 см", "Упаковка: 250 шт", "Компактный размер"] },
+              { name: "Полотенца экологические", specs: ["Размер: 22x24 см", "Упаковка: 180 шт", "Переработанная целлюлоза"] },
+              { name: "Полотенца супервпитывающие", specs: ["Размер: 25x25 см", "Упаковка: 150 шт", "Повышенная впитываемость"] },
+              { name: "Полотенца для кухни", specs: ["Размер: 24x26 см", "Упаковка: 100 шт", "Маслостойкие"] },
+              { name: "Полотенца с логотипом", specs: ["Размер: 23x21 см", "Упаковка: 200 шт", "Персонализация"] },
+              { name: "Полотенца цветные", specs: ["Размер: 22x23 см", "Упаковка: 200 шт", "Различные цвета"] }
+            ].map((product, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img 
+                    src="/img/3a89aa20-0c86-4e7a-84e7-d82bc4da00a1.jpg" 
+                    alt={product.name}
+                    className="w-full h-48 object-cover rounded-t-lg"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-3">{product.name}</h3>
+                  <div className="space-y-2">
+                    {product.specs.map((spec, specIndex) => (
+                      <div key={specIndex} className="flex items-center text-sm text-gray-600">
+                        <Icon name="Check" size={14} className="text-green-500 mr-2 flex-shrink-0" />
+                        {spec}
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Туалетная бумага */}
+      <section id="туалетная-бумага" className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Туалетная бумага</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Полный ассортимент туалетной бумаги для вашего бизнеса
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { name: "Туалетная бумага однослойная Эконом", specs: ["Намотка: 200 м", "Без втулки", "Перфорация: 10 см"] },
+              { name: "Туалетная бумага двухслойная Комфорт", specs: ["Намотка: 150 м", "С втулкой", "Мягкая фактура"] },
+              { name: "Туалетная бумага трёхслойная Премиум", specs: ["Намотка: 120 м", "С втулкой", "Максимальный комфорт"] },
+              { name: "Туалетная бумага для диспенсеров Джамбо", specs: ["Намотка: 500 м", "Без втулки", "Диаметр: 19 см"] },
+              { name: "Туалетная бумага для диспенсеров Мини", specs: ["Намотка: 170 м", "Без втулки", "Компактный размер"] },
+              { name: "Туалетная бумага с тиснением", specs: ["Намотка: 140 м", "С втулкой", "Декоративное тиснение"] },
+              { name: "Туалетная бумага цветная", specs: ["Намотка: 120 м", "С втулкой", "Различные цвета"] },
+              { name: "Туалетная бумага ароматизированная", specs: ["Намотка: 130 м", "С втулкой", "Лавандовый аромат"] },
+              { name: "Туалетная бумага экологическая", specs: ["Намотка: 160 м", "Без втулки", "Переработанная целлюлоза"] },
+              { name: "Туалетная бумага с алоэ", specs: ["Намотка: 140 м", "С втулкой", "Увлажняющий эффект"] },
+              { name: "Туалетная бумага с витамином E", specs: ["Намотка: 120 м", "С втулкой", "Питательные свойства"] },
+              { name: "Туалетная бумага с логотипом", specs: ["Намотка: 150 м", "С втулкой", "Персонализация"] }
+            ].map((product, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-9">
+                  <img 
+                    src="/img/3a89aa20-0c86-4e7a-84e7-d82bc4da00a1.jpg" 
+                    alt={product.name}
+                    className="w-full h-48 object-cover rounded-t-lg"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-3">{product.name}</h3>
+                  <div className="space-y-2">
+                    {product.specs.map((spec, specIndex) => (
+                      <div key={specIndex} className="flex items-center text-sm text-gray-600">
+                        <Icon name="Check" size={14} className="text-green-500 mr-2 flex-shrink-0" />
+                        {spec}
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
